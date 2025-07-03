@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import globalErrorHandler from './middlewares/error.middleware.js';
+import globalErrorHandler from './middlewares/errorMiddleware.js';
 import { ApiError } from './utils/ApiError.js';
 import routes from './api/routes/index.js';
 

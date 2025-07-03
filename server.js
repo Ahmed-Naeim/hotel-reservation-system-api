@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import app from './src/app.js';
-import { dbConnection } from './config/database.js';
+import dbConnection from './config/database.js';
 
 // Handle uncaught exceptions
 process.on('uncaughtException', (err) => {
@@ -10,7 +10,10 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
 });
 
-dotenv.config();
+dotenv.config({path: './config/config.env'});
+
+// Connect to the database
+dbConnection();
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
@@ -26,4 +29,5 @@ process.on('unhandledRejection', (err) => {
     });
 });
 
-const DB = process.env.DATABASE_URL;
+// const DB = process.env.DATABASE_URL;
+
